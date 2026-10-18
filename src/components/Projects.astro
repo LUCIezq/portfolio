@@ -1,0 +1,13 @@
+---
+import { projects } from '@/data/Projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<div id="projects" class="mt-20 px-32">
+  <p class="text-(--color-muted) text-[14px] font-mono">01 — Proyectos ~/proyectos/destacados</p>
+  <div class="flex flex-wrap gap-5 mt-8">
+    {projects.map((project, i) => (
+      <ProjectCard project={project} i={i} />
+    ))}
+  </div>
+</div>

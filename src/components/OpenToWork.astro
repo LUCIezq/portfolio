@@ -1,8 +1,14 @@
 ---
 import AnimatedPing from './AnimatedPing.astro';
+
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
 ---
 
-<div class="flex items-center bg-(--color-bg) gap-2.5 border border-(--color-border) px-7 py-1.5 w-fit rounded-full">
+<div class="flex items-center uppercase bg-(--color-bg) gap-2.5 border border-(--color-border) pl-3 pr-4 py-1.5 w-fit rounded-full">
   <AnimatedPing />
-  <span class="text-(--color-text) text-[15px] font-medium">Disponible</span>
+  <span class="text-(--color-text) text-[14px] font-medium">{text}</span>
 </div>

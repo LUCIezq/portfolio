@@ -3,9 +3,9 @@ import { motion } from 'motion/react';
 export const RevealLinks = () => {
   return (
     <nav className="text-sm text-(--color-text) sm:gap-6">
-      <ul className="flex font-medium items-center gap-4">
+      <ul className="flex items-center gap-4 font-medium">
         <li>
-          <FlipLink href="#">Proyectos</FlipLink>
+          <FlipLink href="#projects">Proyectos</FlipLink>
         </li>
         <li>
           <FlipLink href="#">Métodos</FlipLink>

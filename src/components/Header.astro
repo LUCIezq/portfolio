@@ -1,7 +1,29 @@
 ---
+import GithubIcon from '@components/GithubIcon.astro';
+import LinkedInIcon from '@components/LinkedInIcon.astro';
 import { RevealLinks } from './RevealLink';
 ---
 
-<header class="flex flex-wrap absolute items-center max-w-fit w-full top-10 rounded-full z-10 right-10 justify-around gap-4 border border-(--color-border) bg-(--color-bg) px-10 py-5">
+<header class="flex flex-wrap absolute items-center max-w-fit w-full top-10 rounded-2xl z-10 right-10 justify-around gap-4 border border-gray-300 bg-white px-10 py-5">
   <RevealLinks client:load />
+  <div class="border-l border-gray-600 pl-4">
+    <ul class="flex gap-2">
+      <li class="hover:rotate-12 transition-transform duration-300">
+        <a href="https://github.com/LUCIezq" target="_blank" rel="noopener noreferrer">
+          <GithubIcon />
+        </a>
+      </li>
+      <li class="hover:-rotate-12 transition-transform duration-300">
+        <a
+          href="https://www.linkedin.com/in/ezqluci/"
+          target="_blank"
+          rel="noopener noreferrer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedInIcon />
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>

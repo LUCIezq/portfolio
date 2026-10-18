@@ -1,0 +1,30 @@
+---
+import type { Project } from '@/types/Project';
+
+interface Props {
+  project: Project;
+  i: number;
+}
+
+const { date, title, description, technologies, architecture, linkGit } = Astro.props.project;
+const { i } = Astro.props;
+---
+
+<div class="flex gap-4 flex-1 flex-col items-start transition duration-200 px-6 pt-8 pb-4 border justify-between hover:border-(--color-text) border-gray-300">
+  <div class="flex flex-col">
+    <span class="text-7xl text-(--color-muted) font-display">0{i + 1}</span>
+    <span class="font-mono text-[12px]">{date}</span>
+  </div>
+  <h3 class="font-display w-fit text-5xl">{title}</h3>
+  <p class="font-sans max-w-lg text-(--color-muted) text-[15px]">{description}</p>
+  <ul class="flex gap-4 text-(--color-muted) mt-3">
+    {technologies.map((tech) => (
+      <li class="font-mono text-[12px] hover:text-black cursor-default transition ease-in duration-100 hover:font-bold">
+        {tech}
+      </li>
+    ))}
+  </ul>
+  <button class="place-self-start mt-8 text-[12px] bg-(--color-text) text-(--color-background) py-2.5 px-4 rounded-4xl">
+    Ver proyecto
+  </button>
+</div>

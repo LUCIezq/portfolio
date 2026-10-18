@@ -1,37 +1,44 @@
 ---
 import OpenToWork from './OpenToWork.astro';
+import type { TerminalLine } from '@/components/smoothui/mac-terminal';
+import MacTerminal from '@/components/smoothui/mac-terminal';
+const INTRO_LINES: TerminalLine[] = [
+  { id: '1', text: 'git add .', type: 'command' },
+  { id: '2', text: 'git commit -m "último commit"', type: 'command' },
+  { id: '3', text: '[main a1b2c3d] último commit', type: 'output' },
+  { delay: 400, id: '4', text: 'git add .', type: 'command' },
+  { id: '5', text: 'git commit -m "último commit (ahora sí)"', type: 'command' },
+  { id: '6', text: '[main e4f5a6b] último commit (ahora sí)', type: 'output' },
+  { delay: 400, id: '7', text: 'git add .', type: 'command' },
+  { id: '8', text: 'git commit -m "último último commit"', type: 'command' },
+  { id: '9', text: '[main c7d8e9f] último último commit', type: 'output' },
+  { delay: 400, id: '10', text: 'git status', type: 'command' },
+  { id: '11', text: '# nothing to commit', type: 'comment' },
+  { id: '12', text: '✓ working tree clean', type: 'success' },
+];
 ---
 
-<main class="flex flex-col gap-5 px-32 py-32">
+<main class="flex flex-col gap-5 px-32 py-30">
   <div class="flex flex-col gap-4">
-    <OpenToWork />
-    <span class="text-(--color-muted) font-mono tracking-tight">
-      $ hola, soy Ezequiel · Backend Developer.
-    </span>
+    <OpenToWork text="Disponible para roles Full Stack" />
   </div>
-
-  <h1 class="font-display font-normal tracking-tight max-w-5xl text-9xl leading-36">
-    Construyo APIs REST en .NET y Java.
-  </h1>
-  <p class="max-w-140 text-(--color-muted) text-[17px]">
-    Estoy terminando la Tecnicatura en Desarrollo Web Full Stack (UNLaM). Acá están tres proyectos
-    con las decisiones de arquitectura que tomé en cada uno.
+  <div class="flex items-center gap-8">
+    <h1 class="font-display font-normal tracking-tight max-w-5xl text-9xl leading-36">
+      Construyo aplicaciones web de punta a punta.
+    </h1>
+    <div class="w-full">
+      <MacTerminal
+        client:visible
+        lines={INTRO_LINES}
+        title="~/portfolio-ezequiel"
+        typingSpeed={50}
+      />
+    </div>
+  </div>
+  <p class="max-w-3xl text-(--color-text) font-sans text-[16px]">
+    Soy Ezequiel Luci, desarrollador de Buenos Aires. Mi proyecto más completo es un ecommerce con
+    API en <b>Node.js y TypeScript</b>, base de datos <b>MySQL</b> e interfaz en <b>Angular</b>, con{' '}
+    <b>Docker</b> para levantar los servicios. También construí sistemas en <b>.NET</b> y<b>Java</b>
+    . Termino la Tecnicatura en Desarrollo Web Full Stack (UNLaM) en 2026.
   </p>
-  <div class="flex gap-5 mt-6 items-center">
-    <button class="font-sans border hover:bg-black transition duration-100 hover:text-white ease-in hover:border-white rounded-3xl text-(--color-muted) border-(--color-border)">
-      <a href="#" class="px-4 py-3 block">
-        (01) Ver proyectos
-      </a>
-    </button>
-    <button class="font-sans border hover:bg-black transition hover:text-white duration-100 ease-in hover:border-white rounded-3xl text-(--color-muted) border-(--color-border)">
-      <a href="#" class="px-4 py-3 block">
-        (02) Descargar CV
-      </a>
-    </button>
-    <button class="font-sans border hover:bg-black transition hover:text-white hover:border-white duration-200 rounded-3xl text-(--color-muted) border-(--color-border)">
-      <a href="#" class="px-4 py-3 block">
-        (03) Hablemos!
-      </a>
-    </button>
-  </div>
 </main>

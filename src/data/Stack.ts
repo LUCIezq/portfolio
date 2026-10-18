@@ -7,6 +7,7 @@ export const stack = [
   '.NET',
   'Node.js',
   'Angular',
+  'Express.js',
   'React',
   'Astro',
   'Tailwind',
